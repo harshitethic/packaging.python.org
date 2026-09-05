@@ -46,10 +46,10 @@ pipx is installed with pip:
 Now you can install packages with ``pipx install`` and run the package's
 applications(s) from anywhere.
 
-.. code-block:: console
+.. code-block:: bash
 
-  $ pipx install PACKAGE
-  $ PACKAGE_APPLICATION [ARGS]
+  pipx install PACKAGE
+  PACKAGE_APPLICATION [ARGS]
 
 For example:
 
