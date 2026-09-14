@@ -371,6 +371,13 @@ won't see that token again.**
 
 .. _API token: https://test.pypi.org/help/#apitoken
 
+.. note::
+
+   This tutorial uses a TestPyPI API token because it demonstrates a manual
+   upload from your local machine. For production releases from CI/CD, prefer
+   :doc:`Trusted Publishing </guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows>`
+   so your publishing workflow does not need a long-lived PyPI API token.
+
 Now that you are registered, you can use :ref:`twine` to upload the
 distribution packages. You'll need to install Twine:
 
