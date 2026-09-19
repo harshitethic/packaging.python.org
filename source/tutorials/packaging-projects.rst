@@ -5,6 +5,11 @@ This tutorial walks you through how to package a simple Python project. It will
 show you how to add the necessary files and structure to create the package, how
 to build the package, and how to upload it to the Python Package Index (PyPI).
 
+The example below is an importable Python package. If your goal is to install a
+command-line application or expose a script as a command, the build and upload
+steps still apply; see :ref:`creating-command-line-tools` for the additional
+``[project.scripts]`` configuration and command-line application guidance.
+
 .. tip::
 
    If you have trouble running the commands in this tutorial, please copy the command
