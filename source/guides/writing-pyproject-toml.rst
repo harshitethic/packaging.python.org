@@ -323,7 +323,8 @@ You can also specify the format explicitly, like this:
 ``license`` and ``license-files``
 ---------------------------------
 
-As per :pep:`639`, licenses should be declared with two fields:
+:pep:`639` defines two fields for declaring licensing information. Projects
+may use either or both, as appropriate:
 
 - ``license`` is an :term:`SPDX license expression <License Expression>`
   consisting of one or more :term:`license identifiers <License Identifier>`.
@@ -343,7 +344,7 @@ backend>` now support the new format as shown in the following table.
      - poetry-core
      - uv-build
    * - 1.27.0
-     - 77.0.3
+     - 77.0.0
      - 3.12
      - 2.4.0
      - 2.2.0
