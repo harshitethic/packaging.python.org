@@ -69,8 +69,7 @@ include a hash fragment on every file URL, as defined by the
     </html>
 
 The fragment value is the hexadecimal SHA-256 digest of the linked artifact.
-For example, ``python -m hashlib`` is not a command-line interface; on most
-systems you can calculate the digest with a platform tool such as
+You can calculate it with a platform tool such as
 ``sha256sum Foo-2.0.tar.gz``, or generate these pages with a repository tool
 that records hashes for you.
 
