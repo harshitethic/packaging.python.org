@@ -81,6 +81,21 @@ and therefore:
 * The canonical regular expression provided above is an example of an
   implementation that does a simple textual scan.
 
+If a script needs to contain text that looks like an inline metadata block,
+avoid placing a complete opening marker such as ``# /// script`` on its own
+source line inside a multi-line string. Text-scanning implementations may
+interpret that text as real metadata. For example, adjacent string literals can
+split the marker in the source while still producing the intended runtime text:
+
+.. code:: python
+
+    SOURCE_CODE = (
+        "# /// " "script\n"
+        "# dependencies = [\"example\"]\n"
+        "# ///\n"
+        "print(\"hello\")\n"
+    )
+
 script type
 -----------
 
