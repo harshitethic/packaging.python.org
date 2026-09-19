@@ -500,10 +500,13 @@ differences:
 * Register an account on https://pypi.org - note that these are two separate
   servers and the login details from the test server are not shared with the
   main server.
-* Use ``twine upload dist/*`` to upload your package and enter your credentials
-  for the account you registered on the real PyPI.  Now that you're uploading
-  the package in production, you don't need to specify ``--repository``; the
-  package will upload to https://pypi.org/ by default.
+* For automated releases, prefer :term:`Trusted Publishing` instead of storing
+  a long-lived PyPI API token. If your project uses GitHub Actions, follow the
+  :doc:`Trusted Publishing workflow guide
+  </guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows>`.
+* If you need to upload a release manually, use ``twine upload dist/*`` and
+  enter your PyPI credentials. You don't need to specify ``--repository``;
+  Twine uploads to https://pypi.org/ by default.
 * Install your package from the real PyPI using ``python3 -m pip install [your-package]``.
 
 At this point if you want to read more on packaging Python libraries here are
