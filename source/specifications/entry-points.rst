@@ -60,6 +60,13 @@ Conceptually, an entry point is defined by three required properties:
         for attr in qualname.split('.'):
             obj = getattr(obj, attr)
 
+A reference without a colon resolves to the imported module itself. When a
+colon is present, every component to its right is resolved as an attribute of
+the object already obtained; this lookup does not implicitly import a missing
+submodule. For example, ``pkg.submodule:main`` imports ``pkg.submodule`` and
+then gets its ``main`` attribute, while ``pkg:submodule.main`` only works if
+importing ``pkg`` already exposes ``submodule`` as an attribute.
+
 .. note::
    Some tools call this kind of object reference by itself an 'entry point', for
    want of a better term, especially where it points to a function to launch a
@@ -132,7 +139,8 @@ point should be usable as a command in a system shell after the package is
 installed. The object reference points to a function which will be called with
 no arguments when this command is run. The function may return an integer to be
 used as a process exit code, and returning ``None`` is equivalent to returning
-``0``.
+``0``. For these groups, the object reference therefore uses the colon form so
+that it resolves to the function to call.
 
 For instance, the entry point ``mycmd = mymod:main`` would create a command
 ``mycmd`` launching a script like this::
