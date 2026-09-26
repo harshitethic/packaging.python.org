@@ -47,11 +47,34 @@ end up with a structure that looks like::
         ├── Foo-1.0.tar.gz
         └── Foo-2.0.tar.gz
 
-Once you have this layout, simply configure your webserver to serve the root
+For a quick local repository, you can configure a web server to serve the root
 directory with autoindex enabled. For an example using the built in Web server
-in `Twisted`_, you would simply run ``twistd -n web --path .`` and then
-instruct users to add the URL to their installer's configuration.
+in `Twisted`_, you would run ``twistd -n web --path .`` and then instruct users
+to add the URL to their installer's configuration.
 
+For a static repository intended for reproducible installs or lock files,
+pre-generating project pages that follow the
+:ref:`Simple Repository API <simple-repository-api>` is preferable to relying
+only on a server-generated
+directory listing. In particular, artifact links can include a hash fragment:
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+      <body>
+        <a href="Foo-1.0.tar.gz#sha256=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef">Foo-1.0.tar.gz</a>
+      </body>
+    </html>
+
+The value after ``sha256=`` is the hexadecimal SHA-256 digest of the linked
+artifact. Directory listings generated automatically by a web server generally
+do not add these hash fragments, so consumers may not be able to carry artifact
+hashes into lock data.
+
+If you want a static repository without hand-writing these pages,
+:ref:`dumb-pypi` can generate a Simple Repository API layout from a directory
+of distribution artifacts.
 
 Existing projects
 =================
@@ -104,11 +127,6 @@ Existing projects
      -
      -
      - also mirroring; manual synchronisation
-
-   * - :ref:`dumb-pypi`
-     -
-     -
-     - not a server, but a static file site generator
 
    * - :ref:`httpserver`
      -
