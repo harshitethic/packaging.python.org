@@ -135,6 +135,25 @@ Downloading packages
 
 ``pypi.org`` is the default host for downloading packages.
 
+If pip still tries to download from the legacy ``pypi.python.org`` host,
+check whether an older configuration file overrides the package index:
+
+.. tab:: Unix/macOS
+
+    .. code-block:: bash
+
+        python3 -m pip config list -v
+
+.. tab:: Windows
+
+    .. code-block:: bat
+
+        py -m pip config list -v
+
+Look for ``index-url`` or ``extra-index-url`` values that reference
+``pypi.python.org``. Remove the stale override to use pip's default index,
+or update it to ``https://pypi.org/simple/`` if an explicit value is needed.
+
 Managing published packages and releases
 ----------------------------------------
 
