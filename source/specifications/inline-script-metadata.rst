@@ -219,6 +219,28 @@ Tools that support managing different versions of Python should attempt to use
 the highest available version of Python that is compatible with the script's
 ``requires-python`` metadata, if defined.
 
+Avoid placing text that looks like a metadata block at the beginning of physical
+source lines inside multi-line string literals. Tools are allowed to find
+metadata with a textual scan rather than a Python parser, so such text can be
+mistaken for real inline script metadata.
+
+If a script needs to contain an example of a metadata block as string data,
+construct the delimiter so that the complete marker does not occur at the start
+of a physical source line. For example, adjacent string literals can split the
+marker without changing the resulting string:
+
+.. code:: python
+
+   SOURCE_CODE = (
+       "# " "/// script\n"
+       "# dependencies = [\"pydantic\", \"email-validator\"]\n"
+       "# ///\n"
+       "import pydantic\n"
+   )
+
+Here ``SOURCE_CODE`` still begins with ``# /// script`` at runtime, but the
+Python source itself does not contain a top-level-looking metadata opener.
+
 
 History
 =======
