@@ -54,7 +54,8 @@ to add the URL to their installer's configuration.
 
 For a static repository intended for reproducible installs or lock files,
 pre-generating project pages that follow the
-:ref:`Simple Repository API <simple-repository-api>` is preferable to relying only on a server-generated
+:ref:`Simple Repository API <simple-repository-api>` is preferable to relying
+only on a server-generated
 directory listing. In particular, artifact links can include a hash fragment:
 
 .. code-block:: html
@@ -74,7 +75,6 @@ hashes into lock data.
 If you want a static repository without hand-writing these pages,
 :ref:`dumb-pypi` can generate a Simple Repository API layout from a directory
 of distribution artifacts.
-
 
 Existing projects
 =================
