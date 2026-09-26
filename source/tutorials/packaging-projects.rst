@@ -369,6 +369,17 @@ https://test.pypi.org/manage/account/#api-tokens, setting the "Scope" to "Entire
 account". **Don't close the page until you have copied and saved the token — you
 won't see that token again.**
 
+.. note::
+
+   This tutorial uses an API token because it demonstrates a manual upload to
+   TestPyPI. For automated releases to the real PyPI, prefer
+   :ref:`Trusted Publishing <trusted-publishing>` when your CI provider is
+   supported. Trusted Publishing avoids storing a long-lived PyPI upload token
+   in your CI configuration. See the
+   :doc:`GitHub Actions publishing guide
+   </guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows>`
+   for a complete example.
+
 .. _API token: https://test.pypi.org/help/#apitoken
 
 Now that you are registered, you can use :ref:`twine` to upload the
@@ -500,10 +511,16 @@ differences:
 * Register an account on https://pypi.org - note that these are two separate
   servers and the login details from the test server are not shared with the
   main server.
-* Use ``twine upload dist/*`` to upload your package and enter your credentials
-  for the account you registered on the real PyPI.  Now that you're uploading
-  the package in production, you don't need to specify ``--repository``; the
-  package will upload to https://pypi.org/ by default.
+* For repeatable releases from CI, prefer
+  :ref:`Trusted Publishing <trusted-publishing>` so the workflow can publish
+  without a long-lived PyPI API token. The
+  :doc:`GitHub Actions publishing guide
+  </guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows>`
+  shows the recommended setup.
+* For a one-off manual release, you can still use ``twine upload dist/*``
+  with a PyPI API token. Now that you're uploading to production, you don't
+  need to specify ``--repository``; Twine uploads to https://pypi.org/ by
+  default.
 * Install your package from the real PyPI using ``python3 -m pip install [your-package]``.
 
 At this point if you want to read more on packaging Python libraries here are
