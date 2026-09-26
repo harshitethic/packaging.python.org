@@ -5,6 +5,13 @@ This tutorial walks you through how to package a simple Python project. It will
 show you how to add the necessary files and structure to create the package, how
 to build the package, and how to upload it to the Python Package Index (PyPI).
 
+The example intentionally focuses on an importable Python package. If your
+project should also install a command that users can run directly from a shell,
+you can expose a callable with a ``console_scripts`` entry point. Entry points
+are outside the scope of this introductory tutorial; see the
+:ref:`entry points specification <entry-points>` for the supported forms and
+how installers create command wrappers.
+
 .. tip::
 
    If you have trouble running the commands in this tutorial, please copy the command
