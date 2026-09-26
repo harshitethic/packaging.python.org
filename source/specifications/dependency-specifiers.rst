@@ -131,6 +131,15 @@ Non line-breaking whitespace is mostly optional with no semantic meaning. The
 sole exceptions are detecting the end of a URL requirement and inside user
 supplied constants in environment markers.
 
+Whitespace around version comparison operators and after commas is permitted.
+For example, these human-readable forms are valid dependency specifiers::
+
+    pip ~= 23.1
+    resolvelib > 0.5, != 0.6.0
+
+They are equivalent to the more compact forms ``pip~=23.1`` and
+``resolvelib>0.5,!=0.6.0``.
+
 .. _dependency-specifiers-names:
 
 Names
