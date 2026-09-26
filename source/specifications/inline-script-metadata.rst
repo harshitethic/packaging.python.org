@@ -67,6 +67,17 @@ metadata:
 In circumstances where there is a discrepancy between the text specification
 and the regular expression, the text specification takes precedence.
 
+The canonical regular expression intentionally consumes consecutive valid
+comment-content lines greedily. In particular, a line that looks like another
+block opener is still a valid comment-content line while the current block is
+open. The specification separately says that a starting line MUST NOT appear
+inside another block and allows tools to report that situation as an error.
+
+This behavior is important for metadata whose content legitimately contains
+lines beginning with ``# ///``, as in the embedded C# example above. Changing
+the content repetition in the canonical expression to a non-greedy match would
+make such content terminate the block too early.
+
 Tools MUST NOT read from metadata blocks with types that have not been
 standardized by this specification.
 
