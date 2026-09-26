@@ -53,8 +53,8 @@ in `Twisted`_, you would run ``twistd -n web --path .`` and then instruct users
 to add the URL to their installer's configuration.
 
 For a static repository intended for reproducible installs or lock files,
-pre-generating project pages that follow the :ref:`Simple Repository API
-<simple-repository-api>` is preferable to relying only on a server-generated
+pre-generating project pages that follow the
+:ref:`Simple Repository API <simple-repository-api>` is preferable to relying only on a server-generated
 directory listing. In particular, artifact links can include a hash fragment:
 
 .. code-block:: html
@@ -62,7 +62,7 @@ directory listing. In particular, artifact links can include a hash fragment:
     <!DOCTYPE html>
     <html>
       <body>
-        <a href="Foo-1.0.tar.gz#sha256=<artifact-sha256>">Foo-1.0.tar.gz</a>
+        <a href="Foo-1.0.tar.gz#sha256=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef">Foo-1.0.tar.gz</a>
       </body>
     </html>
 
@@ -127,7 +127,6 @@ Existing projects
      -
      -
      - also mirroring; manual synchronisation
-
 
    * - :ref:`httpserver`
      -
