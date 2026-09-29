@@ -174,6 +174,19 @@ wrapper modules up to date.
   templated C++. Helpers are included for Setuptools or CMake builds. It
   was based on `Boost.Python <https://www.boost.org/doc/libs/1_76_0/libs/python/doc/html/index.html>`__,
   but doesn't require the Boost libraries or BJam.
+* `SIP <https://python-sip.readthedocs.io/en/latest/>`__ is a binding
+  generator for exposing C and C++ libraries to Python. It is best known in
+  the Qt/Python ecosystem and can generate extension glue code from interface
+  descriptions.
+
+* `Boost.Python <https://www.boost.org/doc/libs/release/libs/python/doc/html/index.html>`__
+  is a C++ library for exposing C++ classes and functions to Python through
+  higher-level C++ abstractions over the CPython C API.
+
+* `PyCXX <https://cxx.sourceforge.net/>`__ provides C++ wrapper classes around
+  the CPython C API. It helps extension authors use C++ abstractions for
+  reference management and Python object handling while staying close to the
+  underlying API.
 
 * :doc:`cffi <cffi:index>` is a project created by some of the PyPy
   developers to make it straightforward for developers that already know
