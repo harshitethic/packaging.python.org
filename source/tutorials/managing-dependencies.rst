@@ -145,6 +145,17 @@ development environments on a collaborative Python project! ✨ 🍰 ✨
 If you're interested in creating and distributing your own Python packages, see
 the :ref:`tutorial on packaging and distributing packages <distributing-packages>`.
 
+.. note::
+
+   This tutorial manages an **application environment** with a ``Pipfile`` and
+   ``Pipfile.lock``. Those files are not automatically used as the dependency
+   metadata of a package you build and publish. If you also follow the
+   :ref:`packaging tutorial <distributing-packages>`, declare the package's
+   installation requirements under ``[project].dependencies`` in
+   :file:`pyproject.toml`. A lock file describes a particular resolved
+   environment; package requirements describe what installers may install.
+
+
 Note that when your application includes definitions of Python source packages,
 they (and their dependencies) can be added to your ``pipenv`` environment with
 ``pipenv install -e <relative-path-to-source-directory>`` (e.g.

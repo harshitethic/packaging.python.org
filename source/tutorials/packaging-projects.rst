@@ -166,6 +166,17 @@ automatically.
 Configuring metadata
 ^^^^^^^^^^^^^^^^^^^^
 
+.. note::
+
+   If you followed :ref:`Managing Application Dependencies <managing-dependencies>`,
+   its Pipenv ``Pipfile`` and ``Pipfile.lock`` describe your development or
+   application environment, not the dependency metadata of a distributable
+   package. Build backends do not automatically copy those dependencies into
+   :file:`pyproject.toml`. For a published package, declare its runtime
+   requirements with the ``[project]`` table's ``dependencies`` key; a build
+   backend such as Hatchling does not need a custom hook to read a Pipenv lock
+   file.
+
 Open :file:`pyproject.toml` and enter the following content. Change the ``name``
 to include your username; this ensures that you have a unique
 package name that doesn't conflict with packages uploaded by other people
