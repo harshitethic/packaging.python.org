@@ -43,8 +43,12 @@ the same rules as for binary distributions (see :ref:`binary-distribution-format
 and ``{version}`` is the canonicalized form of the project version (see
 :ref:`version-specifiers`).
 
-The name and version components of the filename MUST match the values stored
-in the metadata contained in the file.
+The name and version components of the filename MUST correspond to the values
+stored in the metadata contained in the file, after applying the filename
+normalization rules above. They do not need to be identical character-for-character
+to the metadata fields. For example, a project with ``Name: my-package`` and
+``Version: 0.1`` has a source distribution named
+``my_package-0.1.tar.gz``.
 
 Code that produces a source distribution file MUST give the file a name that matches
 this specification. This includes the ``build_sdist`` hook of a
@@ -60,8 +64,9 @@ Source distribution file format
 
 A ``.tar.gz`` source distribution (sdist) contains a single top-level directory
 called ``{name}-{version}`` (e.g. ``foo-1.0``), containing the source files of
-the package. The name and version MUST match the metadata stored in the file.
-This directory must also contain a :file:`pyproject.toml` in the format defined in
+the package. As with the archive filename, the name and version MUST correspond to the
+metadata after applying the filename normalization rules; the metadata's
+``Name`` field need not use underscores. This directory must also contain a :file:`pyproject.toml` in the format defined in
 :ref:`pyproject-toml-spec`, and a :file:`PKG-INFO` file containing
 metadata in the format described in the :ref:`core-metadata` specification. The
 metadata MUST conform to at least version 2.2 of the metadata specification.
