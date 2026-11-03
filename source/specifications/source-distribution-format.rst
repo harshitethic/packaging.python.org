@@ -46,6 +46,12 @@ and ``{version}`` is the canonicalized form of the project version (see
 The name and version components of the filename MUST match the values stored
 in the metadata contained in the file.
 
+This comparison uses the normalized distribution name and canonical version,
+rather than requiring character-for-character equality with the metadata text.
+For example, a source distribution named ``my_package-1.0.tar.gz`` may have
+``Name: my-package`` and ``Version: 1.0`` in its ``PKG-INFO``: both name
+spellings identify the same project after normalization.
+
 Code that produces a source distribution file MUST give the file a name that matches
 this specification. This includes the ``build_sdist`` hook of a
 :term:`build backend <Build Backend>`.
