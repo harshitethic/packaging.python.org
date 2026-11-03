@@ -23,6 +23,16 @@ testing environments for any kind of project.
 
 For alternatives, see `Other Tools for Application Dependency Management`_.
 
+.. note::
+
+    This is an **application-environment** tutorial. The separate
+    :doc:`packaging-projects` tutorial builds a distributable package and
+    records its runtime requirements in ``[project].dependencies`` inside
+    ``pyproject.toml``. A ``Pipfile.lock`` created here does not automatically
+    populate package metadata, and build backends such as Hatchling do not
+    read it as a dependency declaration. Choose the tutorial that matches
+    your goal rather than assuming these workflows can be combined unchanged.
+
 Installing Pipenv
 -----------------
 
